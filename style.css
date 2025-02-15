@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header .subtitle {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.photo {
+    width: 100%;
+    /* Adjust width as needed */
+    max-width: 600px;
+    /* Set a max-width for larger screens */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.photo img {
+    width: 100%;
+    /* Make the image responsive */
+    height: auto;
+    /* Maintain aspect ratio */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    /* Ensures the image covers the area without distortion */
+    border: 5px solid #fff;
+    /* White border */
+}
+
+.photo p {
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.message {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.message h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff6f61;
+}
+
+.message p {
+    font-size: 1.2rem;
+    color: #333;
+    text-align: left;
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.photo img:hover {
+    transform: scale(1.05);
+    /* Slightly enlarge the image on hover */
+    transition: transform 0.3s ease;
+}
