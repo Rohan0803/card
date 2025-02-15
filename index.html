@@ -55,29 +55,110 @@
             <p>Made with ❤️ by Rohan</p>
         </footer>
     </div>
-    <!-- Firebase SDK -->
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Amazing Girlfriend</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"></script>
-<!--     <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
+</head>
 
-        // Your web app's Firebase configuration
+<body>
+    <div class="container">
+        <header>
+            <h1>To My Forever Love ❤️</h1>
+            <p class="subtitle">You Mean the World to Me</p>
+        </header>
+
+        <section class="gallery">
+            <div class="photo">
+                <img src="assets/1.jpeg" alt="Our Memory">
+                <p>Every moment with you is magical.</p>
+            </div>
+            <div class="photo">
+                <img src="assets/2.jpeg" alt="Our Memory">
+                <p>You make my life brighter every day.</p>
+            </div>
+            <div class="photo">
+                <img src="assets/4.jpeg" alt="Our Memory">
+                <p>I’m so grateful to have you in my life.</p>
+            </div>
+        </section>
+
+
+        <section class="message">
+            <h2>My Love Letter to You</h2>
+            <p>This is custom daily message for you</p>
+            <p id="message-text">Loading your message...</p>
+
+            <p>
+                Hi Baccha,<br><br>
+                I created this webpage just for you because you deserve something as special as you are.
+                I know me tuza sathi valantine che cards nhi kela hote but he karu sakto.
+                Every day with you feels like a dream, and I can't imagine my life without you.
+                You are my everything—my best friend, my partner, and my soulmate.
+                I love you more than words can ever express.<br><br>
+                Forever Yours,<br>
+                Rohan
+            </p>
+        </section>
+
+        <footer>
+            <p>Made with ❤️ by Rohan</p>
+        </footer>
+    </div>
+    <script type="module">
+        // Import the Firebase modules correctly
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+
+        // Your Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyA1Xypdmf1IMcn_DHoVEyxPzCQUVtCn0Vk",
             authDomain: "ai-recognition-f2b0a.firebaseapp.com",
             projectId: "ai-recognition-f2b0a",
-            storageBucket: "ai-recognition-f2b0a.firebasestorage.app",
+            storageBucket: "ai-recognition-f2b0a.appspot.com", // Fixed typo in storage bucket
             messagingSenderId: "136863613483",
             appId: "1:136863613483:web:b57407ababa5429b18a06e"
         };
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-    </script> -->
-    <script src="script.js"></script>
+        const db = getFirestore(app);  // ✅ Initialize Firestore
+
+        // Fetch the message from Firestore
+        async function fetchMessage() {
+            try {
+                const docRef = doc(db, "messages", "latest");
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    const message = docSnap.data().text;
+                    console.log("Message:", message); // Debugging
+                    document.getElementById("message-text").innerText = message;
+                } else {
+                    document.getElementById("message-text").innerText = "No message found.";
+                }
+            } catch (error) {
+                console.error("Error fetching message: ", error);
+                document.getElementById("message-text").innerText = "Failed to load message.";
+            }
+        }
+
+        // Fetch the message when the page loads
+        window.onload = fetchMessage;
+
+    </script>
+</body>
+
+</html>
 </body>
 
 </html>
